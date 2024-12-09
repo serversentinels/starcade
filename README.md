@@ -1,41 +1,44 @@
 # Starcade
-Unleashing the wonders ofspace, one question at a time!
+Unleashing the wonders of space, one question at a time!
 
 ### Setting up development environment
-1. Setting up NPM and nodejs
-1.1 Installing node and npm
-1.1.1 macOS(using brew)
+#### Setting up NPM and nodejs
+
+##### macOS(using brew)
 ```
 brew install node
 ```
 
-1.1.2 Debian/Ubuntu based
+##### Debian/Ubuntu based
 ```
 sudo apt install nodejs npm
 ```
 
-1.1.3 Arch Linux based
+##### Arch Linux based
 ```
 sudo pacman -S nodejs npm
 ```
 
-1.1.4 Windows
+##### Windows
 ```
 Good luck you are on your own :D
 ```
 
-1.1.5 Nix Shell
+##### Nix Shell
+The included `shell.nix` provides a declarative shell environment relevant to this project.
+To use the provided shell declaration, in project directory, run:
 ```
 nix-shell
 ```
 
-1.2 Running
+#### Running live preview
 (only once)
 ```
 npm install
 ```
 
-1.3 Running the live preview
+##### Running the live preview
 ```
 npm run dev
 ```
+
