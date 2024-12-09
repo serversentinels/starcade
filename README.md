@@ -31,7 +31,9 @@ To use the provided shell declaration, in project directory, run:
 nix-shell
 ```
 
-#### Running live preview
+#### Packaging and running live preview
+
+##### Initial npm setup
 ```
 npm install # (only once. No need to run everytime)
 ```
