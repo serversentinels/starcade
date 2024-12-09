@@ -32,9 +32,8 @@ nix-shell
 ```
 
 #### Running live preview
-(only once)
 ```
-npm install
+npm install # (only once. No need to run everytime)
 ```
 
 ##### Running the live preview
