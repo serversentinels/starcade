@@ -1,8 +1,14 @@
 # Starcade
 Unleashing the wonders of space, one question at a time!
 
-### Setting up development environment
-#### Setting up NPM and nodejs
+## Setting up development environment
+### Setting up NPM and nodejs
+##### Nix Shell
+The included `shell.nix` provides a declarative shell environment relevant to this project.
+To use the provided shell declaration, in project directory, run:
+```
+nix-shell
+```
 
 ##### macOS(using brew)
 ```
@@ -24,21 +30,14 @@ sudo pacman -S nodejs npm
 Good luck you are on your own :D
 ```
 
-##### Nix Shell
-The included `shell.nix` provides a declarative shell environment relevant to this project.
-To use the provided shell declaration, in project directory, run:
-```
-nix-shell
-```
+## Packaging and running live preview
 
-#### Packaging and running live preview
-
-##### Initial npm setup
+### Initial npm setup
 ```
 npm install # (only once. No need to run everytime)
 ```
 
-##### Running the live preview
+### Running the live preview
 ```
 npm run dev
 ```
