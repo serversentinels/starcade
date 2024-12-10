@@ -4,8 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Starcade</title>
+    <link rel="stylesheet" href="src/root.css" />
+    <script type="module" src="src/firebase/firebase.js" defer></script>
+    <script type="module" src="src/app.js" defer></script>
   </head>
   <body>
     <p>Starcade!</p>
+    <section id="whenSignedOut">
+      <button id="signInBtn">Sign in with Google</button>
+    </section>
+    <section id="whenSignedIn" hidden="true">
+      <div id="userDetails"></div>
+      <button id="signOutBtn">Sign Out</button>
+    </section>
   </body>
 </html>
