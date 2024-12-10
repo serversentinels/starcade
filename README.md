@@ -2,6 +2,10 @@
 Unleashing the wonders of space, one question at a time!
 
 ## Setting up development environment
+### Cloning repository
+```
+git clone https://github.com/serversentinels/starcade.git && cd starcade/
+```
 ### Setting up NPM and nodejs
 ##### Nix Shell
 The included `shell.nix` provides a declarative shell environment relevant to this project.
