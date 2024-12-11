@@ -2,30 +2,22 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from
 
 const auth = getAuth();
 
-const whenSignedIn = document.getElementById('whenSignedIn');
-const whenSignedOut = document.getElementById('whenSignedOut');
 
-const signInBtn = document.getElementById('signInBtn');
-const signOutBtn = document.getElementById('signOutBtn');
-
-const userDetails = document.getElementById('userDetails');
+const signInBtn = document.getElementById('signInWithGoogleBtn');
 
 const provider = new GoogleAuthProvider();
 
-signInBtn.onclick = () => signInWithPopup(auth, provider);
-
-
-signOutBtn.onclick = () => auth.signOut();
-
+signInBtn.onclick = () => signInWithPopup(auth, provider).then((result) => {
+  const user = result.user;
+  console.log(user);
+}).catch((error) => {
+  console.log(error.message);
+});
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    whenSignedIn.hidden = false;
-    whenSignedOut.hidden = true;
-    userDetails.innerHTML = `<h3>Hello ${user.displayName}!</h3> <p>User id:${user.uid}</p>`
+    console.log(user);
   } else {
-    whenSignedOut.hidden = false;
-    whenSignedIn.hidden = true;
-    userDetails.innerHTML = ``;
+    console.log('No user signed in');
   }
 }); 

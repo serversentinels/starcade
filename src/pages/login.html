@@ -6,6 +6,8 @@
     <title>Welcome!</title>
     <link href="../css/login.css" rel="stylesheet" />
     <script src="../scripts/account-card-flip.js" defer></script>
+    <script src="../firebase/firebaseConfig.js" type="module" defer></script>
+    <script src="../app.js" type="module" defer></script>
   </head>
   <body>
     <div class="parent">
@@ -38,7 +40,7 @@
             >
               or
             </p>
-            <button class="button-google">
+            <button class="button-google" id="signInWithGoogleBtn">
               Continue with <i class="nf nf-fa-google"></i>
             </button>
             <button class="flip-btn">Create an account</button>
@@ -76,7 +78,7 @@
             >
               or
             </p>
-            <button class="button-google">
+            <button class="button-google" id="signInWithGoogleBtn">
               Continue with <i class="nf nf-fa-google"></i>
             </button>
             <button class="flip-btn-original">Already have an account?</button>
