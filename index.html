@@ -4,18 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Starcade</title>
-    <link rel="stylesheet" href="src/root.css" />
-    <script type="module" src="src/firebase/firebase.js" defer></script>
+    <link rel="stylesheet" href="src/css/front-page.css" />
+    <script type="module" src="src/firebase/firebaseConfig.js" defer></script>
     <script type="module" src="src/app.js" defer></script>
   </head>
   <body>
-    <p>Starcade!</p>
-    <section id="whenSignedOut">
-      <button id="signInBtn">Sign in with Google</button>
-    </section>
-    <section id="whenSignedIn" hidden="true">
-      <div id="userDetails"></div>
-      <button id="signOutBtn">Sign Out</button>
-    </section>
+    <div class="parent">
+      <div class="child">
+        <img src="assets/logo.png" alt="Starcade Logo" />
+        <h2 class="about-text">
+          Unleashing the wonders of space, one question at a time!
+        </h2>
+      </div>
+      <div class="gif">
+        <img
+          id="blackhole-gif"
+          src="assets/512px-Black_hole_representation.gif"
+          alt="Black Hole"
+        />
+      </div>
+    </div>
+    <div class="buttonDiv">
+      <button class="getStartedButton">
+        <span> GAME ON </span>
+      </button>
+    </div>
+    <div class="footer">
+      <footer>
+        <p>
+          "In the abyss of space, where void and darkness reign, lies the
+          promise of infinite discovery and boundless wonder."
+        </p>
+        <p>&copy;2024 Starcade. All rights reserved.</p>
+      </footer>
+    </div>
   </body>
 </html>
