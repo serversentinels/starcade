@@ -1,5 +1,5 @@
 import { getAuth, setPersistence, browserLocalPersistence, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, setDoc, doc } from "firebase/firestore";
+import { getFirestore, setDoc, doc, getDoc } from "firebase/firestore";
 
 import { app } from "./firebase/firebaseConfig";
 
@@ -18,24 +18,34 @@ setPersistence(auth, browserLocalPersistence)
             const user = result.user;
             console.log("User signed in:", user.displayName);
 
-            const userData = {
-              name: user.displayName,
-              email: user.email,
-              uid: user.uid,
-              exp: 0,
-              provider: "google"
-            };
             console.log("Trying to write user data to Firestore");
             const docRef = doc(db, "users", user.uid);
-            await setDoc(docRef, userData).then(() => {
-              console.log('User data written to Firestore');
-            })
-              .catch((error) => {
-                console.error("Error writing document: ", error);
-              });
+            try {
+              const docSnapshot = await getDoc(docRef);
 
-          })
-          .catch((error) => {
+              if (docSnapshot.exists()) {
+                console.log("Document already exists:", docSnapshot.data());
+              } else {
+                const userData = {
+                  name: user.displayName,
+                  email: user.email,
+                  uid: user.uid,
+                  exp: 0,
+                  provider: "google"
+                };
+
+                console.log("Writing new user data to Firestore");
+                await setDoc(docRef, userData);
+                console.log("User data written to Firestore");
+              }
+
+              // Redirect to dashboard after Firestore operation
+              window.location.href = "dashboard.html";
+
+            } catch (error) {
+              console.error("Error handling Firestore document:", error);
+            }
+          }).catch((error) => {
             console.error("Sign-in error:", error.message);
           });
       };
@@ -49,7 +59,7 @@ setPersistence(auth, browserLocalPersistence)
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log(user);
-    window.location.href = "dashboard.html";
+    //window.location.href = "dashboard.html";
   } else {
     console.log('No user signed in');
   }
