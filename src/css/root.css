@@ -29,6 +29,7 @@
 
   --primary-color: var(--nord9);
   --secondary-color: var(--nord10);
+  --accent: var(--nord11);
   --text: var(--nord4);
   margin: 0px;
 }
