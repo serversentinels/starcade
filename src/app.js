@@ -1,23 +1,37 @@
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth"
+import { getAuth, setPersistence, browserLocalPersistence, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 
-const auth = getAuth();
+import { app } from "./firebase/firebaseConfig";
 
+const auth = getAuth(app);
 
 const signInBtn = document.getElementById('signInWithGoogleBtn');
 
 const provider = new GoogleAuthProvider();
 
-signInBtn.onclick = () => signInWithPopup(auth, provider).then((result) => {
-  const user = result.user;
-  console.log(user);
-}).catch((error) => {
-  console.log(error.message);
-});
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    signInBtn.onclick = () => {
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          const user = result.user;
+          console.log("User signed in:", user.displayName);
+          window.location.href = "dashboard.html";
+        })
+        .catch((error) => {
+          console.error("Sign-in error:", error.message);
+        });
+    };
+  })
+  .catch((error) => {
+    console.error("Error setting persistence:", error.message);
+  });
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log(user);
+    window.location.href = "dashboard.html";
   } else {
     console.log('No user signed in');
   }
-}); 
+});
+

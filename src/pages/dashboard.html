@@ -5,48 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dashboard</title>
     <link href="../css/dashboard.css" rel="stylesheet" />
+    <script type="module" src="../scripts/dashboard.js" defer></script>
   </head>
   <body>
-    <div class="sidebar">
-      <ul>
-        <li>
-          <a href="#">
-            <i class="nf nf-cod-home"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="nf nf-fa-question"></i>
-            <span>Quizzes</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="nf nf-oct-book"></i>
-            <span>Articles</span>
-          </a>
-        </li>
+    <div class="parent">
+      <div class="sidebar">
+        <ul>
+          <li>
+            <a href="#">
+              <i class="nf nf-cod-home"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="nf nf-fa-question"></i>
+              <span>Quizzes</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="nf nf-oct-book"></i>
+              <span>Articles</span>
+            </a>
+          </li>
 
-        <li>
-          <a href="#">
-            <i class="nf nf-oct-bell"></i>
-            <span>Notifications</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="nf nf-cod-settings_gear"></i>
-            <span>Settings</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="nf nf-fa-user"></i>
-            <span>Profile</span>
-          </a>
-        </li>
-      </ul>
+          <li>
+            <a href="#">
+              <i class="nf nf-oct-bell"></i>
+              <span>Notifications</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="nf nf-cod-settings_gear"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="nf nf-fa-user"></i>
+              <span>Profile</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="page">
+        <h1 id="user-title">Hello!</h1>
+        <p>
+          Welcome to the dashboard. Here you can view your quizzes, articles,
+          and notifications. You can also change your settings and view your
+          profile.
+        </p>
+      </div>
     </div>
   </body>
 </html>
