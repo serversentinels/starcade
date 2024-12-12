@@ -1,11 +1,12 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getDoc, collection, doc, getFirestore, onSnapshot } from "firebase/firestore";
+import { collection, doc, getFirestore, onSnapshot } from "firebase/firestore";
 import { app } from "../firebase/firebaseConfig";
 
 const auth = getAuth(app);
 const db = getFirestore(app);
 const userTitle = document.getElementById("user-title");
 const userExp = document.getElementById("user-exp");
+const plusStatus = document.getElementById("plus-status");
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -15,24 +16,21 @@ onAuthStateChanged(auth, (user) => {
 
     const collectionRef = collection(db, "users");
     const userDocRef = doc(collectionRef, user.uid);
+    onSnapshot(userDocRef, (docSnapshot) => {
+      if (docSnapshot.exists()) {
+        const data = docSnapshot.data();
+        userExp.innerHTML = `Current exp: ${data.exp}`;
+        const plus = data.plus;
+        if (plus) {
+          plusStatus.innerHTML = "Plus Member";
+        } else {
+          plusStatus.innerHTML = "Regular Member";
+        }
 
-    onSnapshot(collectionRef, (data) => {
-      console.log("Data changed:", data);
-      getDoc(userDocRef)
-        .then((docSnap) => {
-          if (docSnap.exists()) {
-            const userData = docSnap.data();
-            userExp.innerHTML = `Current exp: ${userData.exp}`;
-          } else {
-            console.error("User data not found.");
-          }
-        })
-        .catch((error) => {
-          console.error("Error getting user data:", error);
-        });
-
+      } else {
+        console.log("User data does not exist in firestore.");
+      }
     });
-
     console.log("User is signed in:", user.displayName);
     userTitle.innerHTML = `Hello, ${user.displayName}!`;
   } else {
