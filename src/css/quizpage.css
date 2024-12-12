@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(/assets/login-bg.jpg);
+}
+
+body h2 {
+    color: white;
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quizhead {
+    font-weight: 700;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(218, 209, 209, 0.438); /* Adds a subtle shadow effect */
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-items: center;
+    width: 90%;
+    padding-top: 20px;
+    align-items: center;
+    padding-left: 50px;
+}
+
+.quiz-card {
+    position: relative;
+    background-color: #2e34405e;
+    border: 1px solid #b11313;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(228, 220, 220, 0.315);
+    width: 100%; /* Full width */
+    height: 80px; /* Reduced height for narrow appearance */
+    padding: 10px; /* Slight padding for spacing */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    overflow: hidden; /* Prevents background from overflowing */
+}
+
+.quiz-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/login-bg.jpg'); /* You can set your own background image here */
+    background-size: cover;
+    filter: blur(100px); /* Applies blur to the background */
+    z-index: -1; /* Keeps the blur behind the content */
+}
+
+.quiz-card h3 {
+    margin: 5px 0; /* Smaller margin */
+    font-size: 16px; /* Adjust font size for narrow layout */
+    color: #fff; /* White text to stand out over the blurred background */
+}
+
+.quiz-card p {
+    margin: 2px 0; /* Smaller margin */
+    font-size: 12px; /* Adjust font size for narrow layout */
+    color: #fff; /* White text to stand out over the blurred background */
+}
+
+.quiz-card button {
+    align-self: flex-end; /* Moves button to the bottom right */
+    background: #171a1dd7;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px; /* Smaller button size */
+    font-size: 12px; /* Adjust font size for smaller cards */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quiz-card button:hover {
+    background: #000000;
+}
+
+.quiz-card #quiz {
+    color: white;
+    font-size: medium; /* Adjust font size to fit layout */
+    z-index: 1;
+}
