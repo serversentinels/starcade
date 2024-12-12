@@ -31,7 +31,8 @@ setPersistence(auth, browserLocalPersistence)
                   email: user.email,
                   uid: user.uid,
                   exp: 0,
-                  provider: "google"
+                  provider: "google",
+                  plus: false
                 };
 
                 console.log("Writing new user data to Firestore");
